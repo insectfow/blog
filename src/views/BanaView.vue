@@ -59,7 +59,9 @@
         </div>
       </div>
     </header>
+    <!-- 컨텐츠 -->
     <div class="bana-contents">
+      <!-- 메인 미디어 영역 -->
       <section class="bana-main-media">
         <!-- 가맹점 문의 바로가기 버튼 -->
         <div class="bana-btn-franchisee">
@@ -69,13 +71,19 @@
             <i class="arrow-icon"></i>
           </a>
         </div>
+        <!-- 마우스 애니메이션 -->
         <div class="bana-mouse-img">
           <img src="@/assets/images/bana/ico_mouse.png" alt="bana main media mouse animation">
         </div>
-        <!-- 메인 영상 -->
+        <!-- 메인 영상 컨텐츠 -->
         <div class="bana-media">
           <video src="@/assets/images/bana/home_v_6c27a118e335.mp4" muted autoplay></video>
         </div>
+      </section>
+      <section class="bana-new-menu">
+        <h3 class="bana-new-menu-title">
+          <img src="@/assets/images/bana/tit_new_menu.png" alt="bana menu title word img">
+        </h3>
       </section>
     </div>
     <!-- 헤더 모바일 메뉴 모달 -->
@@ -269,15 +277,22 @@ export default {
         }
       }
     }
+    .bana-mouse-img {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 30px;
+      animation: mouseMove 2.4s infinite ease-in-out;
+      > img {
+        width: 100%;
+      }
+    }
   }
-  .bana-mouse-img {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 30px;
-    animation: mouseMove 2.4s infinite ease-in-out;
-    > img {
-      width: 100%;
+  
+  .bana-new-menu {
+    padding: 130px 0;
+    .bana-new-menu-title {
+      text-align: center;
     }
   }
 }
