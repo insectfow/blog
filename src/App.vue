@@ -36,7 +36,7 @@ a, a:focus, a:hover {
   justify-content: center !important;
   left: 50% !important;
   transform: translateX(-50%) !important;
-  bottom: -80px !important;
+  bottom: -40px !important;
   .swiper-pagination-bullet {
     border-radius: 0 !important;
     border: 1px solid #fff;
