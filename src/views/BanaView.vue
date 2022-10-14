@@ -84,6 +84,81 @@
         <h3 class="bana-new-menu-title">
           <img src="@/assets/images/bana/tit_new_menu.png" alt="bana menu title word img">
         </h3>
+        <p class="bana-new-menu-text">시즌마다 들어오는 새로운 메뉴들을 바나프레소에서 즐기세요.</p>
+        <div class="bana-new-menu-contents">
+          <swiper
+            :modules="modules"
+            :slides-per-view="1.3"
+            :space-between="25"
+            :pagination="{ clickable: true, el: '.bana-swiper-pagination' }"
+            :loop="true"
+            :centeredSlides="true"
+            :autoplay='{
+              "delay": 4000,
+              "disableOnInteraction": false
+            }'
+            :breakpoints="{
+              1240: {
+                slidesPerView: 5,
+                spaceBetween: 50
+              },
+              768: {
+                slidesPerView: 3,
+                spaceBetween: 50
+              },
+              640: {
+                slidesPerView: 1.5,
+                spaceBetween: 30
+              }
+            }"
+            @swiper="onSwiper"
+            @slideChange="onSlideChange"
+          >
+            <swiper-slide>
+              <div class="bana-card">
+                <a href="#">
+                  <img src="@/assets/images/bana/banner_15817b9d471f.jpg" alt="bana new menu img">
+                </a>
+              </div>
+            </swiper-slide>
+            <swiper-slide>
+              <div class="bana-card">
+                <a href="#">
+                  <img src="@/assets/images/bana/220920_3TYPE-원두_키오스크POP.jpg" alt="bana new menu img">
+                </a>
+              </div>
+            </swiper-slide>
+            <swiper-slide>
+              <div class="bana-card">
+                <a href="#">
+                  <img src="@/assets/images/bana/banner_3f5a7a8040c5.jpg" alt="bana new menu img">
+                </a>
+              </div>
+            </swiper-slide>
+            <swiper-slide>
+              <div class="bana-card">
+                <a href="#">
+                  <img src="@/assets/images/bana/banner_6c2b3ff2f693.jpg" alt="bana new menu img">
+                </a>
+              </div>
+            </swiper-slide>
+            <swiper-slide>
+              <div class="bana-card">
+                <a href="#">
+                  <img src="@/assets/images/bana/banner_6f6fdae8c160.jpg" alt="bana new menu img">
+                </a>
+              </div>
+            </swiper-slide>
+            <swiper-slide>
+              <div class="bana-card">
+                <a href="#">
+                  <img src="@/assets/images/bana/banner_8da0180039fd.jpg" alt="bana new menu img">
+                </a>
+              </div>
+            </swiper-slide>
+          </swiper>
+          <div class="bana-swiper-pagination"></div>
+        </div>
       </section>
     </div>
     <!-- 헤더 모바일 메뉴 모달 -->
@@ -94,14 +169,29 @@
 <script>
 import banaMobileMenu from '@/components/bana/BanaMobileMenu.vue';
 import { ref } from 'vue';
+import { Pagination, Autoplay } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import 'swiper/css';
+import 'swiper/css/pagination';
+
 export default {
   components: {
-    banaMobileMenu
+    banaMobileMenu,
+    Swiper,
+    SwiperSlide,
   },
   setup() {
     const isMobileModal = ref(false);
 
-    return { isMobileModal };
+    const onSwiper = (swiper) => {
+        console.log(swiper);
+    };
+    const onSlideChange = () => {
+      console.log('slide change');
+    };
+
+    return { isMobileModal, onSwiper,
+      onSlideChange, modules: [Pagination, Autoplay], };
   }
 }
 </script>
@@ -293,7 +383,28 @@ export default {
     padding: 130px 0;
     .bana-new-menu-title {
       text-align: center;
+      margin-bottom: 20px;
+      
     }
+    .bana-new-menu-text {
+      text-align: center;
+      color: #777;
+      margin-bottom: 60px;
+    }
+    .bana-new-menu-contents {
+      position: relative;
+      margin: 0 20px;
+    }
+    .bana-card {
+      > a {
+        display: flex;
+        width: 100%;
+        > img {
+          width: 100%;
+        }
+      }
+    }
+    
   }
 }
 
@@ -389,6 +500,11 @@ export default {
       }
       
     }
+    .bana-new-menu {
+      .bana-new-menu-contents {
+        margin: 0;
+      }
+    }
   }
   @keyframes mouseMove {
     0% {
@@ -430,6 +546,19 @@ export default {
         opacity: 1;
       }
     }
+    .bana-new-menu {
+      .bana-new-menu-text {
+        text-align: center;
+        word-break: keep-all;
+        line-height: 1.5;
+        font-size: 20px;
+        color: #777;
+        margin-bottom: 60px;
+      }
+    }
+    
+    
+    
     
   }
   @keyframes mouseMove {
