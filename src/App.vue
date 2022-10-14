@@ -13,7 +13,7 @@
   src: url(@/assets/fonts/nanumsquarer.woff2) format("woff2");
 }
 
-html, body, nav, div, ul, li, ol, p, span, input, a, h1, h2, h3, h4, h5, h6 {
+html, body, nav, div, ul, li, ol, p, span, input, a, h1, h2, h3, h4, h5, h6, section {
   margin: 0;
   padding: 0;
   font-family: 'nanum-squarer';

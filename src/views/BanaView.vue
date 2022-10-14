@@ -1,5 +1,6 @@
 <template>
   <div class="bana-home">
+    <!-- 헤더 -->
     <header class="bana-header">
       <div class="bana-container">
         <!-- 헤더 로고 -->
@@ -58,6 +59,25 @@
         </div>
       </div>
     </header>
+    <div class="bana-contents">
+      <section class="bana-main-media">
+        <!-- 가맹점 문의 바로가기 버튼 -->
+        <div class="bana-btn-franchisee">
+          <a href="#">
+            <i class="shop-icon"></i>
+            <span>가맹점 문의</span>
+            <i class="arrow-icon"></i>
+          </a>
+        </div>
+        <div class="bana-mouse-img">
+          <img src="@/assets/images/bana/ico_mouse.png" alt="bana main media mouse animation">
+        </div>
+        <!-- 메인 영상 -->
+        <div class="bana-media">
+          <video src="@/assets/images/bana/home_v_6c27a118e335.mp4" muted autoplay></video>
+        </div>
+      </section>
+    </div>
     <!-- 헤더 모바일 메뉴 모달 -->
     <bana-mobile-menu v-show="isMobileModal" @close="isMobileModal = false" />
   </div>  
@@ -81,12 +101,15 @@ export default {
 <style lang="scss" scoped>
 // 헤더
 .bana-header {
+  position: sticky;
+  top: 0;
   width: 100%;
   height: 95px;
   background: #fff;
   display: flex;
   border-bottom: 1px solid #ddd;
   box-sizing: border-box;
+  z-index: 20;
   // 헤더 컨테이너
   .bana-container {
     width: 1200px;
@@ -197,6 +220,80 @@ export default {
   }
 }
 
+.bana-contents {
+  position: relative;
+  width: 100%;
+  height: 4000px;
+  z-index: 19;
+  background: #fff;
+  .bana-main-media {
+    position: relative;
+    width: 100%;
+    .bana-media {
+      width: 100%;
+      overflow: hidden;
+      max-height: 850px;
+      > video {
+        width: 100%;
+      }
+    }
+    .bana-btn-franchisee {
+      position: absolute;
+      top: 28%;
+      right: 5%;
+      z-index: 20;
+      > a {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        border: 1px solid #23163e;
+        border-radius: 40px;
+        background-color: rgba(38,26,63,.9);
+        color: #fff;
+        height: 80px;
+        padding: 0 26px;
+        > span {
+          font-size: 24px;
+          font-weight: bold;
+          padding: 0 20px 0 12px;
+        }
+        .shop-icon {
+          background: url(@/assets/images/bana/icon_store.png) no-repeat center / cover;
+          width: 27px;
+          height: 26px;
+        }
+        .arrow-icon {
+          background: url(@/assets/images/bana/icon_arrow_right.png) no-repeat center / cover;
+          width: 27px;
+          height: 26px;
+        }
+      }
+    }
+  }
+  .bana-mouse-img {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    animation: mouseMove 2.4s infinite ease-in-out;
+    > img {
+      width: 100%;
+    }
+  }
+}
+
+@keyframes mouseMove {
+  0% {
+    bottom: 5%;
+  }
+  50% {
+    bottom: 4%;
+  }
+  100% {
+    bottom: 5%;
+  }
+}
+
 @media screen and (max-width:1240px) {
   .bana-header {
     height: 60px;
@@ -255,6 +352,80 @@ export default {
           width: 100%;
         }
       }
+    }
+  }
+}
+@media screen and (max-width:768px) {
+  .bana-contents {
+    .bana-main-media {
+      .bana-btn-franchisee {
+        top: 10%;
+        right: 5%;
+        > a {
+          padding: 0 20px;
+          height: 60px;
+          > span {
+            font-size: 20px;
+          }
+        }
+      }
+      .bana-mouse-img {
+        width: 24px;
+      }
+      
+    }
+  }
+  @keyframes mouseMove {
+    0% {
+      bottom: 8%;
+    }
+    50% {
+      bottom: 7%;
+    }
+    100% {
+      bottom: 8%;
+    }
+  }
+}
+
+@media screen and (max-width:420px) {
+  .bana-contents {
+    .bana-main-media {
+      .bana-btn-franchisee {
+        transition: opacity 0.2s;
+        opacity: 0;
+        > a {
+          padding: 0 20px;
+          height: 60px;
+          > span {
+            font-size: 20px;
+          }
+        }
+      }
+      .bana-media {
+        > video {
+          width: 100%;
+          object-fit: cover;
+          height: calc(100vh - 60px);
+        }
+      }
+    }
+    .bana-main-media:hover {
+      .bana-btn-franchisee {
+        opacity: 1;
+      }
+    }
+    
+  }
+  @keyframes mouseMove {
+    0% {
+      bottom: 10%;
+    }
+    50% {
+      bottom: 9%;
+    }
+    100% {
+      bottom: 10%;
     }
   }
 }
