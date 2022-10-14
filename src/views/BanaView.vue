@@ -80,6 +80,7 @@
           <video src="@/assets/images/bana/home_v_6c27a118e335.mp4" muted autoplay></video>
         </div>
       </section>
+      <!-- 새로운 메뉴 영역 -->
       <section class="bana-new-menu">
         <h3 class="bana-new-menu-title">
           <img src="@/assets/images/bana/tit_new_menu.png" alt="bana menu title word img">
@@ -158,6 +159,17 @@
             </swiper-slide>
           </swiper>
           <div class="bana-swiper-pagination"></div>
+        </div>
+      </section>
+      <!-- 바나 가이드 -->
+      <section class="bana-guide">
+        <h3 class="bana-guide-title">
+          <img src="@/assets/images/bana/tit_bana_guide.png" alt="bana guide title word img">
+        </h3>
+        <p class="bana-guide-text">바나프레소 앱 다운 받고 더 많은 혜택을 누려보세요.</p>
+        <div class="bana-guide-contents">
+          <div></div>
+          <div></div>
         </div>
       </section>
     </div>
@@ -378,7 +390,6 @@ export default {
       }
     }
   }
-  
   .bana-new-menu {
     padding: 130px 0;
     .bana-new-menu-title {
@@ -405,6 +416,22 @@ export default {
       }
     }
     
+  }
+  .bana-guide {
+    width: 100%;
+    height: 900px;
+    background: url(@/assets/images/bana/bg_guide.jpg) no-repeat center / cover;
+    padding: 130px 0;
+    .bana-guide-title {
+      text-align: center;
+      margin-bottom: 20px;
+      
+    }
+    .bana-guide-text {
+      text-align: center;
+      color: #777;
+      margin-bottom: 60px;
+    }
   }
 }
 
