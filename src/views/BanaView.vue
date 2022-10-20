@@ -168,8 +168,63 @@
         </h3>
         <p class="bana-guide-text">바나프레소 앱 다운 받고 더 많은 혜택을 누려보세요.</p>
         <div class="bana-guide-contents">
-          <div></div>
-          <div></div>
+          <div class="bana-guide-left glp">
+            <h4>Guide 01</h4>
+            <p>행복한 사이즈
+              <br>
+              행복한 한잔!
+              <br>
+
+              앱에서 편리하게 주문하고
+              <br>
+
+              다양한 이벤트와 혜택도
+              <br>
+
+              누려보세요!</p>
+            <div class="bana-btn">
+              <a href="#">
+                <i class="apple-img"></i>
+                <span>App store</span>
+                <i class="arrow-img"></i>
+              </a>
+              <a href="#">
+                <i class="google-img"></i>
+                <span>google play</span>
+                <i class="arrow-img"></i>
+              </a>
+            </div>
+          </div>
+          <div class="bana-guide-right">
+            <figure>
+              <img src="@/assets/images/bana/img_guide1.png" alt="bana guide img1">
+            </figure>
+          </div>
+        </div>
+        <div class="bana-guide-contents btl">
+          <div class="bana-guide-left grp">
+            <figure>
+              <img src="@/assets/images/bana/img_guide2.png" alt="bana guide img2">
+            </figure>
+          </div>
+          <div class="bana-guide-right glp">
+            <h4>Guide 02</h4>
+            <p>앱 설치 문자 받기!
+              <br>
+              빠르고 손쉽게 앱을
+              <br>
+              설치해보세요 :)</p>
+            <div class="bana-guide-input-wrap">
+              <input type="tel" placeholder="(-)없이 휴대폰 번호 입력">
+              <button>URL 받기</button>
+            </div>
+          </div>
+        </div>
+        <div class="bana-guide-app-more-btn">
+          <a href="#">
+            <span>App 상세보기</span>
+            <i class="arrow2-img"></i>
+          </a>
         </div>
       </section>
     </div>
@@ -419,7 +474,7 @@ export default {
   }
   .bana-guide {
     width: 100%;
-    height: 900px;
+    // height: 900px;
     background: url(@/assets/images/bana/bg_guide.jpg) no-repeat center / cover;
     padding: 130px 0;
     .bana-guide-title {
@@ -431,6 +486,147 @@ export default {
       text-align: center;
       color: #777;
       margin-bottom: 60px;
+    }
+    .bana-guide-contents {
+      display: flex;
+      align-items: center;
+      width: 1200px;
+      margin: 0 auto;
+      h4 {
+        color: #f1648a;
+        margin-bottom: 25px;
+        font-size: 15px;
+        font-weight: bold;
+      }
+      p {
+        font-size: 38px;
+        font-weight: bold;
+        line-height: 51px;
+        margin-bottom: 40px;
+      }
+      .glp {
+        padding-left: 125px;
+      }
+
+      .grp {
+        padding-left: 85px;
+      }
+
+      figure {
+        width: 100%;
+        img {
+          width: 100%;
+        }
+      }
+
+      .bana-btn {
+        display: flex;
+        gap: 5px;
+        > a {
+          display: flex;
+          align-items: center;
+          border-radius: 40px;
+          border: 1px solid #f9c9d6;
+          width: 134px;
+          height: 66px;
+          padding: 0 24px;
+          background: #fff;
+          > span {
+            color: #000;
+          }
+        }
+        .apple-img, .google-img {
+          width: 22px;
+          height: 64px;
+          margin-right: 7px;
+        }
+
+        .apple-img {
+          background: url(@/assets/images/bana/icon_app_store.png) no-repeat center / contain;
+        }
+        .google-img {
+          background: url(@/assets/images/bana/icon_google_play.png) no-repeat center / contain;
+        }
+
+        .arrow-img {
+          margin-left: 14px;
+          width: 7px;
+          height: 14px;
+          background: url(@/assets/images/bana/arrow_right_black.png) no-repeat center / contain;
+        }
+      }
+
+      .bana-guide-input-wrap {
+        display: flex;
+        height: 58px;
+        > input {
+          width: 268px;
+          padding: 0 20px;
+          height: 100%;
+          box-sizing: border-box;
+          border: 1px solid #f9c9d6;
+          background: #fff;
+          border-radius: 4px;
+          font-size: 15px;
+        }
+        > button {
+          width: 104px;
+          height: 100%;
+          border: none;
+          background: #f1648a;
+          font-size: 18px;
+          border-radius: 4px;
+          margin-left: 5px;
+          color: #fff;
+          font-weight: bold;
+        }
+      }
+    }
+    .btl {
+      position: relative;
+    }
+    .btl::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 1px;
+      background: #fdd6e2;
+    }
+    .bana-guide-app-more-btn {
+      margin-top: 50px;
+      display: flex;
+      justify-content: center;
+      > a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 300px;
+        height: 90px;
+        background: #f1648a;
+        border-radius: 50px;
+        
+        .arrow2-img {
+          width: 40px;
+          height: 12px;
+          background: url(@/assets/images/bana/arrow_right_white.png) no-repeat center / contain;
+          transform: translateX(0);
+          transition: all 0.2s ease-in-out;
+        }
+
+        > span {
+          font-size: 26px;
+          font-weight: bold;
+          color: #fff;
+          margin-right: 30px;
+        }
+      }
+      
+      > a:hover {
+        .arrow2-img {
+          transform: translateX(10px);
+        }
+      }
     }
   }
 }
@@ -487,6 +683,32 @@ export default {
       }
     }
   }
+
+  .bana-contents {
+    .bana-guide {
+      .bana-guide-contents {
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        padding: 0 20px;
+        box-sizing: border-box;
+        p {
+          font-size: 28px;
+          line-height: 44px;
+        }
+        .glp {
+          padding-left: 60px;
+        }
+
+        .grp {
+          padding-left: 0;
+        }
+        figure {
+          width: 400px;
+        }
+      }
+    }
+  }
 }
 
 @media screen and (max-width:1024px) {
@@ -504,6 +726,44 @@ export default {
         > img {
           width: 100%;
         }
+      }
+    }
+  }
+}
+@media screen and (max-width:900px) {
+  .bana-contents {
+    .bana-guide {
+      .bana-guide-contents {
+        flex-direction: column;
+        padding-top: 60px;
+        h4 {
+          text-align: center;
+        }
+        p {
+          font-size: 28px;
+          line-height: 44px;
+          text-align: center;
+        }
+        .glp {
+          padding-left: 0;
+        }
+
+        > div {
+          margin-bottom: 40px;
+        }
+
+        .grp {
+          padding-left: 0;
+        }
+        figure {
+          width: 400px;
+        }
+      }
+      .btl {
+        flex-direction: column-reverse !important;
+      }
+      .btl::after {
+        width: 80%;
       }
     }
   }
