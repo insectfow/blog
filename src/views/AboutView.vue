@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home" :scroll="handelScroll">
     <input type="text" v-model="search" />
     <p>{{ search }}</p>
     <div v-for="name in matchingNames" :key="name">
@@ -25,6 +25,10 @@ export default {
   setup() {
     const search = ref("");
     const names = ref(["qq", "aa", "zz", "dd"]);
+
+    const scrollWrap = document.getElementById('app');
+
+    console.log(scrollWrap);
     
 
     const matchingNames = computed(() => {
@@ -56,7 +60,7 @@ export default {
       posts.value = [{title: '3번 타이틀', body: '3번 제목', id: 3}]
     };
 
-    return { names, search, matchingNames, handleClick, posts };
+    return { names, search, matchingNames, handleClick, posts, scrollWrap };
   }
 };
 </script>

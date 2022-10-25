@@ -1,11 +1,38 @@
-<template>
-  <!-- <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link> |
-    <router-link to="/bana">Bana</router-link>
-  </nav> -->
+<template >
   <router-view />
 </template>
+
+<script>
+import { ref, onMounted,  onBeforeUnmount} from 'vue'
+export default ({
+  setup() {
+    const scrollTop = ref(0);
+
+    
+    const handelScroll = (e) => {
+      scrollTop = e.target.scrollTop;
+      
+      if(scrollTop > 100){
+        console.log("UP")
+      } else {
+        console.log("DOWN")
+      }
+    }
+    
+    const startScroll = onMounted(() => {
+      console.log(document.getElementById('app').scrollTop);
+      // window.addEventListener('scroll', handelScroll)
+    })
+
+    const endScroll = onBeforeUnmount(() => {
+      window.removeEventListener('scroll', handelScroll)
+    });
+
+    return { scrollTop , handelScroll, startScroll, endScroll }
+  },
+})
+</script>
+
 
 <style lang="scss">
 @font-face {
@@ -29,7 +56,6 @@ ul, ol, li {
 a, a:focus, a:hover {
   text-decoration: none;
 }
-
 .bana-swiper-pagination {
   position: absolute;
   display: flex !important;
@@ -51,6 +77,8 @@ a, a:focus, a:hover {
   }
   
 }
+
+
 .swiper {
   padding: 60px 20px !important;
 }

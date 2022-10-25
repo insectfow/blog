@@ -1,12 +1,12 @@
 <template>
-  <div class="bana-home">
+  <div class="bana-home" >
     <!-- 헤더 -->
     <header class="bana-header">
       <div class="bana-container">
         <!-- 헤더 로고 -->
         <h1 class="bana-logo">
           <router-link to="/bana">
-            <img src="../assets/images/bana/h_logo_9d3496d0dcaf.png" alt="bana home logo">
+            <img src="@/assets/images/bana/h_logo_9d3496d0dcaf.png" alt="bana home logo">
           </router-link>
         </h1>
         <!-- 헤더 네비 -->
@@ -163,10 +163,13 @@
       </section>
       <!-- 바나 가이드 -->
       <section class="bana-guide">
+        <!-- 가이드 타이틀 -->
         <h3 class="bana-guide-title">
           <img src="@/assets/images/bana/tit_bana_guide.png" alt="bana guide title word img">
         </h3>
+        <!-- 가이드 설명글 -->
         <p class="bana-guide-text">바나프레소 앱 다운 받고 더 많은 혜택을 누려보세요.</p>
+        <!-- 가이드 1 -->
         <div class="bana-guide-contents">
           <div class="bana-guide-left glp">
             <h4>Guide 01</h4>
@@ -201,6 +204,7 @@
             </figure>
           </div>
         </div>
+        <!-- 가이드 2 -->
         <div class="bana-guide-contents btl">
           <div class="bana-guide-left grp">
             <figure>
@@ -220,6 +224,7 @@
             </div>
           </div>
         </div>
+        <!-- App 상세보기 버튼 -->
         <div class="bana-guide-app-more-btn">
           <a href="#">
             <span>App 상세보기</span>
@@ -227,7 +232,70 @@
           </a>
         </div>
       </section>
+      <!-- 바나 스토어 -->
+      <section class="bana-store">
+        <!-- 스토어 타이틀 -->
+        <h3 class="bana-store-title">
+          <img src="@/assets/images/bana/tit_store.png" alt="bana store title word img">
+        </h3>
+        <!-- 스토어 설명글 -->
+        <p class="bana-store-text">주변의 가까운 바나프레소 매장을 찾아보세요.</p>
+
+        <div class="bana-store-contents">
+          <ul class="bana-store-lists">
+            <li v-for="list in stores" :key="list.id">
+              <a href="#">
+                <picture>
+                  <img :src="list.img" :alt="list.storeName + ' 스토어 이미지'">
+                </picture>
+                <h3>{{list.storeName}}</h3>
+                <p>{{list.address}}</p>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
     </div>
+    <!-- 푸터 -->
+    <footer class="bana-footer">
+      <div class="bana-footer-container">
+        <h4 class="footer-logo">
+        <img src="@/assets/images/bana/footer_logo.png" alt="bana footer logo">
+        </h4>
+        <ul class="footer-nav">
+          <li>
+            <a href="#">개인정보처리방침</a>
+          </li>
+          <li>
+            <a href="#">이용약관</a>
+          </li>
+          <li>
+            <a href="#">채용</a>
+          </li>
+          <li>
+            <a href="#">입점제안</a>
+          </li>
+          <li>
+            <a href="#">가맹점 문의</a>
+          </li>
+        </ul>
+        <address class="footer-address">
+          <span>
+            <strong>
+              상호명 : 주식회사 바나플에프엔비
+            </strong>
+          </span>
+          <span>
+            <em>대표자명 : 송민기</em><em>사업장 소재지 : 서울특별시 강남구 테헤란로 81길 9 (삼성동, 바나플빌딩) 3층</em><em>사업자번호 : 358-87-00860</em>
+          </span>
+          <span>
+            <em>대표전화 : 1811-1111</em><em>Fax : 070-4512-0296</em><em>이메일 : master@banapresso.com</em>
+          </span>
+          <span class="copy">© banaple F&B. All Rights Reserved.</span>
+        </address>
+      </div>
+      
+    </footer>
     <!-- 헤더 모바일 메뉴 모달 -->
     <bana-mobile-menu v-show="isMobileModal" @close="isMobileModal = false" />
   </div>  
@@ -250,15 +318,74 @@ export default {
   setup() {
     const isMobileModal = ref(false);
 
+    
     const onSwiper = (swiper) => {
-        console.log(swiper);
+      console.log(swiper);
     };
     const onSlideChange = () => {
       console.log('slide change');
     };
-
+    
+    const stores = ref([
+      {
+        id: 1,
+        storeName: '충무로점',
+        address: '서울특별시 중구 필동2가 21-1',
+        img: require('@/assets/images/bana/store1.jpg')
+      },
+      {
+        id: 2,
+        storeName: '건대역점',
+        address: '서울 광진구 아차산로 221 (화양동 7-4)',
+        img: require('@/assets/images/bana/store2.jpg')
+      },
+      {
+        id: 3,
+        storeName: '서소문로점',
+        address: '서울 중구 서소문로 130 1층',
+        img: require('@/assets/images/bana/store3.jpg')
+      },
+      {
+        id: 4,
+        storeName: '교육개발원사거리점',
+        address: '서울 서초구 강남대로27길 7-21 1층',
+        img: require('@/assets/images/bana/store4.jpg')
+      },
+      {
+        id: 5,
+        storeName: '서초범원점',
+        address: '서울시 서초구 서초동 1554-5 아스트라 101호, 102호',
+        img: require('@/assets/images/bana/store5.jpg')
+      },
+      {
+        id: 6,
+        storeName: 'AK금정점',
+        address: '경기도 군포시 금정동 689번지 AK플라자 금정점 2층',
+        img: require('@/assets/images/bana/store6.jpg')
+      },
+      {
+        id: 7,
+        storeName: '낙성대역점',
+        address: '서울시 관악구 봉천동 1658-19 ',
+        img: require('@/assets/images/bana/store1.jpg')
+      },
+      {
+        id: 8,
+        storeName: '구로비즈메트로점',
+        address: '서울시 구로구 구로동 851번지 한화비즈메트로1차 109호',
+        img: require('@/assets/images/bana/store8.jpg')
+      },
+      {
+        id: 9,
+        storeName: '거여역점',
+        address: '서울특별시 송파구 거여동 37-6',
+        img: require('@/assets/images/bana/store9.jpg')
+      }
+    ])
+    
+    
     return { isMobileModal, onSwiper,
-      onSlideChange, modules: [Pagination, Autoplay], };
+      onSlideChange, modules: [Pagination, Autoplay], stores};
   }
 }
 </script>
@@ -388,7 +515,6 @@ export default {
 .bana-contents {
   position: relative;
   width: 100%;
-  height: 4000px;
   z-index: 19;
   background: #fff;
   .bana-main-media {
@@ -486,6 +612,7 @@ export default {
       text-align: center;
       color: #777;
       margin-bottom: 60px;
+      word-break: keep-all;
     }
     .bana-guide-contents {
       display: flex;
@@ -629,6 +756,112 @@ export default {
       }
     }
   }
+  .bana-store {
+    padding: 130px 0;
+    width: 1200px;
+    margin: 0 auto;
+    .bana-store-title {
+      text-align: center;
+      margin-bottom: 20px;
+      
+    }
+    .bana-store-text {
+      text-align: center;
+      color: #777;
+      margin-bottom: 60px;
+    }
+
+    .bana-store-contents {
+      padding: 40px 0;
+      margin: 0 auto;
+      > ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        > li {
+          width: 30%;
+          > a {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            > picture {
+              margin-bottom: 10px;
+              > img {
+                width: 100%;
+              }
+            }
+            > h3 {
+              margin-bottom: 10px;
+              font-size: 22px;
+              color: #000;
+              font-weight: bold;
+            }
+            > p {
+              color: #999;
+              font-size: 16px;
+              text-align: center;
+              line-height: 20px;
+              min-height: 60px;
+            }
+          }
+          > a:hover {
+            > h3 {
+              color: #f1648a;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.bana-footer {
+  position: relative;
+  padding: 60px 0 40px;
+  background: #fff;
+  border-top: 1px solid #cecece;
+  .bana-footer-container {
+    width: 1200px;
+    margin: 0 auto;
+    
+  }
+  .footer-logo {
+    margin-bottom: 15px;
+  }
+  .footer-nav {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+    > li {
+      > a {
+        color: #000;
+      }
+      > a:hover {
+        color: #f1648a;
+      }
+    }
+  }
+  .footer-address {
+    > span {
+      display: block;
+      margin-bottom: 10px;
+      color: #333;
+      > strong {
+        display: inline-block;
+        font-style: normal;
+        margin-bottom: 5px;
+      }
+      > em {
+        margin-right: 20px;
+        font-style: normal;
+      }
+    }
+  }
 }
 
 @keyframes mouseMove {
@@ -708,6 +941,29 @@ export default {
         }
       }
     }
+    .bana-store {
+      width: 100%;
+    }
+  }
+  .bana-footer {
+    .footer-logo {
+      margin-bottom: 30px;
+    }
+    .bana-footer-container {
+      width: 100%;
+      // margin: 0 auto;
+      padding: 0 20px;
+      box-sizing: border-box;
+    }
+    .footer-address {
+      > span {
+        > em {
+          display: inline-block;
+          word-break: keep-all;
+          line-height: 26px;
+        }
+      }
+    }
   }
 }
 
@@ -766,6 +1022,15 @@ export default {
         width: 80%;
       }
     }
+    .bana-store {
+      .bana-store-contents {
+        > ul {
+          > li {
+            width: 46%;
+          }
+        }
+      }
+    }
   }
 }
 @media screen and (max-width:768px) {
@@ -790,6 +1055,56 @@ export default {
     .bana-new-menu {
       .bana-new-menu-contents {
         margin: 0;
+      }
+    }
+    .bana-store {
+      .bana-store-contents {
+        > ul {
+          > li {
+            width: 90%;
+          }
+        }
+      }
+    }
+    .bana-guide {
+      .bana-guide-contents {
+        > div {
+        }
+        figure {
+          width: 100%;
+          margin: 0;
+          padding: 0;
+        }
+      }
+    }
+  }
+  .bana-footer {
+    .footer-nav {
+      flex-wrap: wrap;
+      > li {
+        
+        > a {
+          display: flex;
+          flex-wrap: wrap;
+        }
+      }
+    }
+    .footer-logo {
+      margin-bottom: 30px;
+    }
+    .bana-footer-container {
+      width: 100%;
+      // margin: 0 auto;
+      padding: 0 20px;
+      box-sizing: border-box;
+    }
+    .footer-address {
+      > span {
+        > em {
+          display: inline-block;
+          word-break: keep-all;
+          line-height: 26px;
+        }
       }
     }
   }
@@ -843,6 +1158,7 @@ export default {
         margin-bottom: 60px;
       }
     }
+    
     
     
     

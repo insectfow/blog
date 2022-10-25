@@ -1,0 +1,76 @@
+// font import
+@import '../scss/fonts.scss'; 
+// founction import
+@import '../scss/config.scss';
+
+
+
+html {
+    font-size: 10px !important;
+    font-family: 'Nanum-Gothic', snas-serif;
+}
+
+html, body, div, ul, li, section, article, ol, a , h1, h2, h3, h4, h5, h6, figure, p {
+    margin: 0;
+    padding: 0;
+    color: var(--content-color);
+    font-size: 1.6rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family:'Nanum-Gothic-Bold', snas-serif;
+}
+
+figure > figcaption {
+    display: none;
+}
+
+ul, li, ol {
+    list-style: none;
+}
+
+a, a:hover, a:active {
+    text-decoration: none;
+    color:  var(--title-color);
+}
+
+// clearfix
+.clearfix:before, .clearfix:after {
+    display: block;
+    content: '';
+    line-height: 0;
+}
+
+.clearfix:after {
+    clear:both;
+}
+
+.clearfix {
+	*zoom: 1;
+}
+
+#app {
+  
+}
+
+.popup-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+}
+
+.layout {
+  width: 1280px;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 1280px) {
+  .layout {
+    width: 100%;
+  } 
+}
