@@ -43,6 +43,24 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "bana" */ "../views/TodoView.vue"),
   },
+  {
+    path: "/login",
+    name: "login",
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(/* webpackChunkName: "bana" */ "../views/LoginView.vue"),
+  },
+  {
+    path: "/peed",
+    name: "peed",
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(/* webpackChunkName: "bana" */ "../views/PeedView.vue"),
+  },
 ];
 
 const router = createRouter({

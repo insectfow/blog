@@ -7,27 +7,15 @@
             Dh blog
           </router-link>
         </h3>
-        <swich-button-vue @toggle="onToggleDarkMode" :darkmode="darkmode" />
+        <ul>
+          <li><a href="#"></a></li>
+        </ul>
+        <!-- <swich-button-vue @toggle="onToggleDarkMode" :darkmode="darkmode" /> -->
       </div>
     </header>
     <div class="home-content page">
       <div class="container">
-        <h3 class="home-title layout">1.클론 코딩</h3>
-        <ul class="card-list layout">
-          <li v-for="lists in cardList" :key="'card list' + (lists.idx + 1)">
-            <router-link :to="lists.path" >
-              <figure :style="{ backgroundImage : 'url(' + lists.imageUrl + ')'}">
-                <div class="cover-bg"></div>
-              </figure>
-              <h4>{{lists.name}}</h4>
-            </router-link>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="home-content page">
-      <div class="container">
-        <h3 class="home-title layout">2.자습서</h3>
+        <!-- <h3 class="home-title layout">1.클론 코딩</h3> -->
         <ul class="card-list layout">
           <li v-for="lists in cardList" :key="'card list' + (lists.idx + 1)">
             <router-link :to="lists.path" >
@@ -45,11 +33,11 @@
 
 <script>
 import { ref, reactive,  onMounted } from 'vue';
-import SwichButtonVue from '@/components/home/SwichButton.vue';
+// import SwichButtonVue from '@/components/home/SwichButton.vue';
 export default ({
   name: "HomeView",
   components: {
-    SwichButtonVue
+    // SwichButtonVue
   },
   setup() {
 
@@ -59,7 +47,25 @@ export default ({
           idx: 1,
           name: '바나프레소',
           path: '/bana',
-          imageUrl: require('@/assets/images/bana/m_95301U181858_1.jpg')
+          imageUrl: 'https://source.unsplash.com/random?coffee'
+        },
+        {
+          idx: 2,
+          name: 'Todo:D',
+          path: '/todo',
+          imageUrl: 'https://source.unsplash.com/random?sky'
+        },
+        {
+          idx: 3,
+          name: 'IntersectionObserver',
+          path: '/test',
+          imageUrl: 'https://source.unsplash.com/random?water'
+        },
+        {
+          idx: 4,
+          name: 'login',
+          path: '/login',
+          imageUrl: 'https://source.unsplash.com/random?login'
         },
        
       ]

@@ -1,10 +1,46 @@
 <template >
   <router-view />
+  <!-- <button @click="handleSignOut">로그아웃하기</button> -->
 </template>
 
 <script>
+import { ref, onMounted } from 'vue';
+import { onAuthStateChanged, signOut } from 'firebase/auth';
+import { auth } from '../public/js/firebase';
+
 export default ({
   setup() {
+    const isLoggedIn = ref(false);
+
+    onMounted(() => {
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          // User is signed in, see docs for a list of available properties
+          // https://firebase.google.com/docs/reference/js/firebase.User
+          const uid = user.uid;
+
+          console.log(uid, user);
+
+          isLoggedIn.value = true;
+          // ...
+        } else {
+          isLoggedIn.value = false;
+          // User is signed out
+          // ...
+        }
+      })
+    });
+
+    const handleSignOut = () => {
+      signOut(auth).then((res) => {
+        console.log(res, '로그아웃 성공');
+      })
+        .catch((error) => {
+          console.error(error);
+        })
+    };
+
+    return { handleSignOut }
   },
 })
 </script>
