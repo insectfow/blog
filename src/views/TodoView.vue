@@ -92,7 +92,9 @@ export default {
 
 <style lang="scss" scoped>
 .todo-page {
-  background: #fff;
+  width: 100vw;
+  height: 100vh;
+  background: url('https://source.unsplash.com/weekly?water') no-repeat center / cover;
   .container {
     padding: 30px 20px ;
     box-sizing: border-box;
@@ -100,6 +102,8 @@ export default {
   h3 {
     text-align: center;
     font-size: 4rem;
+    color: #fff;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
   }
   .todo-input {
     display: flex;
