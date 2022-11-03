@@ -3,32 +3,8 @@
 </template>
 
 <script>
-import { ref, onMounted,  onBeforeUnmount} from 'vue'
 export default ({
   setup() {
-    const scrollTop = ref(0);
-
-    
-    const handelScroll = (e) => {
-      scrollTop = e.target.scrollTop;
-      
-      if(scrollTop > 100){
-        console.log("UP")
-      } else {
-        console.log("DOWN")
-      }
-    }
-    
-    const startScroll = onMounted(() => {
-      console.log(document.getElementById('app').scrollTop);
-      // window.addEventListener('scroll', handelScroll)
-    })
-
-    const endScroll = onBeforeUnmount(() => {
-      window.removeEventListener('scroll', handelScroll)
-    });
-
-    return { scrollTop , handelScroll, startScroll, endScroll }
   },
 })
 </script>

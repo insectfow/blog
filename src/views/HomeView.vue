@@ -52,59 +52,59 @@ export default ({
     SwichButtonVue
   },
   setup() {
-    const cardList = ref(
+
+    let cardList = ref(
       [
         {
           idx: 1,
-          name: '바나프레소 클론 코딩',
+          name: '바나프레소',
           path: '/bana',
           imageUrl: require('@/assets/images/bana/m_95301U181858_1.jpg')
         },
        
       ]
     );
-    // const darkmode = ref(false);
+    let darkmode = ref(false);
 
-    // const dackModeCheck = onMounted(() => {
-    //   if (window && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    //     document.documentElement.classList.add("darkmode");
-    //     darkmode = true;
-    //   } else {
-    //     document.documentElement.classList.add("lightmode");
-    //     darkmode = false;
-    //   }
-    // });
+    const dackModeCheck = onMounted(() => {
+      if (window && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.classList.add("darkmode");
+        darkmode.value = true;
+      } else {
+        document.documentElement.classList.add("lightmode");
+        darkmode.value = false;
+      }
+    });
 
-    // const onToggleDarkMode = () => {
-    //   if (window) {
-    //     console.log(window.matchMedia('(prefers-color-scheme: dark)').matches);
+    const onToggleDarkMode = () => {
+      if (window) {
+        console.log(window.matchMedia('(prefers-color-scheme: dark)').matches);
 
-    //     if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    //       if(document.documentElement.classList.contains('darkmode')) {
-    //         document.documentElement.classList.remove("darkmode");
-    //         document.documentElement.classList.add("lightmode");
-    //         darkmode = false;
-    //       } else {
-    //         document.documentElement.classList.remove("lightmode");
-    //         document.documentElement.classList.add("darkmode");
-    //         darkmode = true;
-    //       }
-    //     } else {
-    //       if(document.documentElement.classList.contains('lightmode')) {
-    //         document.documentElement.classList.remove("lightmode");
-    //         document.documentElement.classList.add("darkmode");
-    //         darkmode = true;
-    //       } else {
-    //         document.documentElement.classList.remove("darkmode");
-    //         document.documentElement.classList.add("lightmode");
-    //         darkmode = false;
-    //       }
-    //     }
-    //   }
-    // }
-    // dackModeCheck, onToggleDarkMode, darkmode
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          if(document.documentElement.classList.contains('darkmode')) {
+            document.documentElement.classList.remove("darkmode");
+            document.documentElement.classList.add("lightmode");
+            darkmode.value = false;
+          } else {
+            document.documentElement.classList.remove("lightmode");
+            document.documentElement.classList.add("darkmode");
+            darkmode.value = true;
+          }
+        } else {
+          if(document.documentElement.classList.contains('lightmode')) {
+            document.documentElement.classList.remove("lightmode");
+            document.documentElement.classList.add("darkmode");
+            darkmode.value = true;
+          } else {
+            document.documentElement.classList.remove("darkmode");
+            document.documentElement.classList.add("lightmode");
+            darkmode.value = false;
+          }
+        }
+      }
+    }
 
-    return { cardList, }
+    return { cardList, dackModeCheck, onToggleDarkMode, darkmode}
   }
 });
 </script>
@@ -116,7 +116,7 @@ export default ({
   grid-template-rows: 80px auto;
   .home-title {
     font-size: 24px;
-    color: #000;
+    // color: #000;
     margin-bottom: 20px;
   }
   .container {

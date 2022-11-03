@@ -630,6 +630,7 @@ export default {
         font-weight: bold;
         line-height: 51px;
         margin-bottom: 40px;
+        color: #000;
       }
       .glp {
         padding-left: 125px;
